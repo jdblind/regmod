@@ -1,0 +1,11 @@
+gcc -o ./maths ./maths.c
+
+# compile with position independent code
+gcc -c -Wall -Werror -fpic ./maths.c
+
+# create shared lib from object file
+gcc -shared -o ./libmaths.so ./maths.o 
+
+# link with shared lib (if there is a main.c)
+gcc -L./ -Wall -o libmaths maths.c -lmaths
+

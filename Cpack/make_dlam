@@ -1,0 +1,11 @@
+gcc -I/Library/Frameworks/R.framework/PrivateHeaders/ -o ./dlam ./dlam.c
+
+# compile with position independent code
+gcc -c -I/Library/Frameworks/R.framework/PrivateHeaders/ -Wall -Werror -fpic ./dlam.c
+
+# create shared lib from object file
+gcc -shared -o ./libdlam.so ./dlam.o 
+
+# link with shared lib (if there is a main.c)
+# gcc -L./ -Wall -o libdlam dlam.c -ldlam
+
